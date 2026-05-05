@@ -1,0 +1,27 @@
+{
+  "name": "thisnthat",
+  "owner": {
+    "name": "this+that",
+    "url": "https://thisandthat.chat"
+  },
+  "metadata": {
+    "description": "MCP plugins for the this+that productivity platform",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "dobox-cowork",
+      "source": "./dobox-cowork",
+      "description": "View your DoBox tasks directly in Claude Cowork",
+      "version": "1.0.0",
+      "author": {
+        "name": "this+that",
+        "url": "https://thisandthat.chat"
+      },
+      "homepage": "https://thisandthat.chat",
+      "repository": "https://github.com/thisnthat-lab/mcp-server",
+      "license": "MIT",
+      "keywords": ["dobox", "tasks", "productivity", "mcp", "thisandthat"]
+    }
+  ]
+}

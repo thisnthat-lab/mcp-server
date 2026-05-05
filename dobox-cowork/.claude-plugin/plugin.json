@@ -1,0 +1,8 @@
+{
+  "name": "dobox-cowork",
+  "version": "1.0.0",
+  "description": "View your DoBox tasks directly in Claude Cowork",
+  "author": {
+    "name": "this+that"
+  }
+}
