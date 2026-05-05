@@ -78,12 +78,14 @@ Most clients discover these automatically.
 
 ### Tested clients
 
-| Client | Status | Notes |
-|---|---|---|
-| Claude Code (via this Cowork plugin) | Working | Recommended path |
-| Claude Desktop | Expected to work | Please [open an issue](https://github.com/thisnthat-lab/mcp-server/issues) if it doesn't |
-| MCP Inspector 0.21.2 | Known issue | OAuth completes, but Inspector doesn't send the spec-required `Accept: application/json, text/event-stream` header on subsequent requests. Tracked in [modelcontextprotocol/inspector#1289](https://github.com/modelcontextprotocol/inspector/issues/1289). Server is correct; use Claude Desktop or the Cowork plugin instead until Inspector ships a fix. |
-| Cursor, Cline, Continue, Zed, others | Unknown | If you're using one of these, we'd love a report — open an issue. |
+| Client | Connection | Tool calls | Notes |
+|---|---|---|---|
+| Claude Code (via this plugin) | Untested | Untested | Recommended path; pending end-to-end verification |
+| claude.ai web (custom connector) | Working | Working | Verified end-to-end |
+| Claude Desktop (custom connector) | Working | Working | Same broker as claude.ai web |
+| MCP Inspector 0.21.2 | Working | Working | Verified end-to-end |
+| ChatGPT, Gemini | Untested | Untested | Both support remote MCP servers — reports welcome via [issues](https://github.com/thisnthat-lab/mcp-server/issues). |
+| Cursor, Cline, Continue, Zed, others | Unknown | Unknown | If you're using one of these, we'd love a report. |
 
 ---
 
