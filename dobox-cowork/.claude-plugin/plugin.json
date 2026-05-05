@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "View your DoBox tasks directly in Claude Cowork",
   "author": {
-    "name": "this+that"
-  }
+    "name": "this+that",
+    "url": "https://www.thisandthat.chat"
+  },
+  "homepage": "https://www.thisandthat.chat/mcp",
+  "repository": "https://github.com/thisnthat-lab/mcp-server",
+  "license": "MIT",
+  "keywords": ["dobox", "tasks", "productivity", "mcp", "thisandthat", "inbox", "workflow"]
 }

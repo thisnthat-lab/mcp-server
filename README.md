@@ -1,6 +1,6 @@
 # this+that MCP Server Plugins
 
-Official MCP plugins for the [this+that](https://thisandthat.chat) productivity platform. Designed for Claude Code, but the underlying MCP servers work with any client that speaks the [Model Context Protocol](https://modelcontextprotocol.io/).
+Official MCP plugins for the [this+that](https://thisandthat.chat) productivity platform. The underlying MCP servers work with any AI assistant that speaks the [Model Context Protocol](https://modelcontextprotocol.io/) — Claude Code, Claude Desktop, Cursor, and others. We publish a Cowork plugin for Claude Code as the easiest entry point.
 
 ## Available plugins
 

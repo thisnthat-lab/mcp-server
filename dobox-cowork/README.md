@@ -1,8 +1,8 @@
-# DoBox for Claude
+# DoBox for AI assistants
 
 Your DoBox, in any AI assistant that speaks MCP.
 
-This is the official this+that DoBox connector. It lets Claude (or any MCP-compatible AI client) read your DoBox entries on demand — overdue items, today's work, upcoming tasks, AI suggestions — so you can ask questions like "what's overdue?" or "summarize my DoBox for the day" without leaving your editor or terminal.
+This is the official this+that DoBox connector. It lets your AI assistant — Claude Code, Claude Desktop, Cursor, or any MCP-compatible client — read your DoBox entries on demand: overdue items, today's work, upcoming tasks, AI suggestions. Ask questions like "what's overdue?" or "summarize my DoBox for the day" without leaving your editor or terminal.
 
 The connector is read-only and authenticated against your existing this+that account. There are no API keys to manage; sign-in happens once in your browser via OAuth.
 
@@ -10,8 +10,8 @@ The connector is read-only and authenticated against your existing this+that acc
 
 ## What you'll need
 
-- An active **this+that account**. If you don't have one, sign up at [thisandthat.chat](https://thisandthat.chat) first and add at least one DoBox entry.
-- An **MCP-compatible AI client**. Most users will use Claude Code, but the connector works with any client that supports the MCP standard (Claude Desktop, etc.).
+- An active **this+that account**. If you don't have one, sign up at [assistant.thisandthat.chat](https://assistant.thisandthat.chat) first and add at least one DoBox entry.
+- An **MCP-compatible AI client**. Many users will use Claude Code or another AI Chat program, but the connector works with any client that supports the MCP standard.
 
 That's it.
 
@@ -67,7 +67,7 @@ Add this to your Claude Desktop config (Settings → Developer → Edit Config):
 
 Restart Claude Desktop. On first use, it'll prompt you to sign in.
 
-### Other MCP clients (Cursor, custom integrations, etc.)
+### Other MCP clients
 
 Point your client at `https://mcp.thisandthat.chat/mcp` as an HTTP MCP server. The OAuth metadata endpoints are:
 
@@ -75,6 +75,15 @@ Point your client at `https://mcp.thisandthat.chat/mcp` as an HTTP MCP server. T
 - `https://mcp.thisandthat.chat/.well-known/oauth-authorization-server`
 
 Most clients discover these automatically.
+
+### Tested clients
+
+| Client | Status | Notes |
+|---|---|---|
+| Claude Code (via this Cowork plugin) | Working | Recommended path |
+| Claude Desktop | Expected to work | Please [open an issue](https://github.com/thisnthat-lab/mcp-server/issues) if it doesn't |
+| MCP Inspector 0.21.2 | Known issue | OAuth completes, but Inspector doesn't send the spec-required `Accept: application/json, text/event-stream` header on subsequent requests. Tracked in [modelcontextprotocol/inspector#1289](https://github.com/modelcontextprotocol/inspector/issues/1289). Server is correct; use Claude Desktop or the Cowork plugin instead until Inspector ships a fix. |
+| Cursor, Cline, Continue, Zed, others | Unknown | If you're using one of these, we'd love a report — open an issue. |
 
 ---
 
@@ -93,6 +102,8 @@ More tools (creating, updating, and resolving tasks) are on the roadmap.
 The connector reads entries from your DoBox — subject, description, due date, attached communications, and AI-suggested status. It cannot read other users' data, and it does not currently write or delete anything.
 
 Authentication uses standard OAuth 2.0. Tokens are stored by your AI client (e.g., in your OS keychain on macOS); we never see them.
+
+For full details on how this+that handles your data, see the [privacy policy](https://www.thisandthat.chat/assistant-privacy-policy).
 
 ---
 
