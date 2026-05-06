@@ -17,28 +17,30 @@ That's it.
 
 ---
 
-## Install in Claude Code (recommended)
+## Install in Claude Code
 
-Claude Code is the easiest path because we ship a Cowork plugin that bundles the connector with a `/dobox` slash command.
-
-In Claude Code, run:
+The fastest path is one terminal command:
 
 ```
-/plugin marketplace add thisnthat-lab/mcp-server
-/plugin install dobox-cowork@thisnthat
+claude mcp add --transport http this_and_that https://mcp.thisandthat.chat/mcp
 ```
 
-The first time you run a DoBox command, Claude Code will open your browser to sign in to this+that. After that, it remembers you on that machine.
+Then in Claude Code, run `/mcp` to verify the connection. Your browser opens for sign-in the first time; Claude remembers you on that machine afterwards.
 
-### Try it
+(There's also a plugin-install path via `/plugin marketplace add thisnthat-lab/mcp-server` followed by `/plugin install dobox-cowork@thisnthat`. It works, but Claude doesn't expose MCP tools as slash commands so it gives you no shortcut over the direct add — see "Asking your assistant" below.)
 
-In any Claude Code conversation, type:
+## Asking your assistant
 
-```
-/dobox
-```
+Once the connector is set up, ask in plain English:
 
-Claude will fetch your unresolved DoBox entries and group them by due date (overdue, today, upcoming, no due date).
+- "What's in my DoBox?"
+- "What's overdue?"
+- "Summarize my unresolved DoBox entries"
+- "Show me 10 resolved DoBox items"
+
+Your assistant picks the right tool and arguments automatically. **There is no `/dobox` or `/get_dobox_entries` slash command in Claude** (Code, Desktop, or web) — Claude doesn't expose MCP tools as slash commands. Use natural language.
+
+> **ChatGPT exception**: ChatGPT does auto-generate a `/dobox` slash shortcut after you add the connector, so you can type `/dobox` directly. ChatGPT is the only client we've seen do this.
 
 ---
 
@@ -67,6 +69,17 @@ Add this to your Claude Desktop config (Settings → Developer → Edit Config):
 
 Restart Claude Desktop. On first use, it'll prompt you to sign in.
 
+### ChatGPT (custom MCP connector)
+
+Requires **Developer Mode** enabled. On the web app: **Settings → Apps → Advanced settings → Developer mode** (Pro/Plus/Business/Enterprise/Education accounts; web only — not mobile).
+
+Then **Settings → Connectors → Create custom connector** with:
+
+- **Server URL**: `https://mcp.thisandthat.chat/mcp`
+- Leave all other fields (Client ID, Client Secret, advanced URLs) **blank** — the server handles dynamic client registration
+
+Save and click Connect. You'll be redirected to sign in. After authorizing, the connector activates and DoBox tools appear in your conversations.
+
 ### Other MCP clients
 
 Point your client at `https://mcp.thisandthat.chat/mcp` as an HTTP MCP server. The OAuth metadata endpoints are:
@@ -83,8 +96,9 @@ Most clients discover these automatically.
 | Claude Code (via this plugin) | Untested | Untested | Recommended path; pending end-to-end verification |
 | claude.ai web (custom connector) | Working | Working | Verified end-to-end |
 | Claude Desktop (custom connector) | Working | Working | Same broker as claude.ai web |
+| ChatGPT (custom connector) | Working | Working | Verified end-to-end. Requires Developer Mode. |
 | MCP Inspector 0.21.2 | Working | Working | Verified end-to-end |
-| ChatGPT, Gemini | Untested | Untested | Both support remote MCP servers — reports welcome via [issues](https://github.com/thisnthat-lab/mcp-server/issues). |
+| Gemini | Untested | Untested | Should support remote MCP via Vertex/Agentspace — reports welcome via [issues](https://github.com/thisnthat-lab/mcp-server/issues). |
 | Cursor, Cline, Continue, Zed, others | Unknown | Unknown | If you're using one of these, we'd love a report. |
 
 ---
