@@ -4,7 +4,7 @@ Official MCP plugins for the [this+that](https://thisandthat.chat) productivity 
 
 ## Available plugins
 
-- [`thisandthat`](./thisandthat): your DoBox tasks, your team's brain and your own memory in your AI assistant, plus a `/dobox` command that lists open tasks.
+- [`thisandthat`](./thisandthat): your DoBox tasks, Collections, the Company Brain and your own memory in your AI assistant, plus a `/dobox` command that lists open tasks.
 
 ## Install in Claude Code
 

@@ -1,7 +1,7 @@
 {
   "name": "thisandthat",
   "version": "1.0.0",
-  "description": "Work with this+that from your AI assistant: manage DoBox tasks, rules and recurring tasks, search and edit your team's brain, and look up what your own mail and chats established about people, commitments and decisions",
+  "description": "Work with this+that from your AI assistant: manage DoBox tasks, rules and recurring tasks, search your Collections and Company Brain and edit your Collections, and look up what your own mail and chats established about people, commitments and decisions",
   "author": {
     "name": "this+that",
     "url": "https://www.thisandthat.chat"
@@ -15,6 +15,7 @@
     "dobox",
     "tasks",
     "brain",
+    "collections",
     "knowledge-base",
     "memory",
     "contacts",

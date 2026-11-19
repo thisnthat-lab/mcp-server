@@ -5,14 +5,14 @@
 		"url": "https://www.thisandthat.chat"
 	},
 	"metadata": {
-		"description": "MCP plugins for this+that: DoBox tasks, the team brain and your personal memory",
+		"description": "MCP plugins for this+that: DoBox tasks, Collections, the Company Brain and your personal memory",
 		"version": "1.0.0"
 	},
 	"plugins": [
 		{
 			"name": "thisandthat",
 			"source": "./thisandthat",
-			"description": "Work with this+that from your AI assistant: manage DoBox tasks, rules and recurring tasks, search and edit your team's brain, and look up what your own mail and chats established about people, commitments and decisions",
+			"description": "Work with this+that from your AI assistant: manage DoBox tasks, rules and recurring tasks, search your Collections and Company Brain and edit your Collections, and look up what your own mail and chats established about people, commitments and decisions",
 			"version": "1.0.0",
 			"author": {
 				"name": "this+that",
@@ -25,6 +25,7 @@
 				"dobox",
 				"tasks",
 				"brain",
+				"collections",
 				"knowledge-base",
 				"memory",
 				"contacts",
