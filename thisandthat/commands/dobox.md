@@ -1,3 +1,7 @@
+---
+description: Show your open DoBox tasks, grouped by due date
+---
+
 Use the `dobox_get_entries` MCP tool to fetch the user's unresolved DoBox entries. Present the results as a clear, organized list.
 
 For each entry, show:

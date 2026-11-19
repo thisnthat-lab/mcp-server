@@ -4,13 +4,13 @@ Official MCP plugins for the [this+that](https://thisandthat.chat) productivity 
 
 ## Available plugins
 
-- [`dobox-cowork`](./dobox-cowork) — view your DoBox tasks in your AI assistant via the `/dobox` command.
+- [`thisandthat`](./thisandthat): your DoBox tasks, your team's brain and your own memory in your AI assistant, plus a `/dobox` command that lists open tasks.
 
 ## Install in Claude Code
 
 ```
 /plugin marketplace add thisnthat-lab/mcp-server
-/plugin install dobox-cowork@thisnthat
+/plugin install thisandthat@thisnthat
 ```
 
 For per-plugin documentation, see each plugin's README.
