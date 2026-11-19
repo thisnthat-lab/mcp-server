@@ -1,11 +1,11 @@
 # this+that for AI assistants
 
-Your DoBox, your team's brain and your own memory, in any AI assistant that speaks MCP.
+Your DoBox, your Collections and Company Brain, and your own memory, in any AI assistant that speaks MCP.
 
 This is the official this+that connector. It lets your AI assistant (Claude Code, Claude Desktop, Cursor or any MCP-compatible client) work with three parts of this+that:
 
 - **DoBox**: read, create, update and resolve tasks, with comments, checklists and subtasks; accept suggested tasks; organize them into groups, subgroups and labels; set up rules and recurring tasks
-- **Brain**: search and read your team's knowledge pages, and create, edit and rename pages and spaces
+- **Collections and the Company Brain**: search and read your team's Collections pages and, on the Enterprise plan, its Company Brain pages; create, edit and rename Collections pages and spaces (the Company Brain writes its own pages, so they're read-only)
 - **Your memory**: what your own mail, chats and notes established (commitments, decisions, deadlines, preferences), who you deal with most, your profile and writing voice; you can confirm, correct or retract what it holds
 
 Ask things like "what's overdue?", "what did I promise Halcyon?" or "add the new payment terms to the Halcyon page" without leaving your editor or terminal.
@@ -49,7 +49,7 @@ Once the connector is set up, ask in plain English:
 - "What's in my DoBox?"
 - "What's overdue?"
 - "Create a task to send Halcyon the renewal quote by Friday"
-- "What does our brain say about the refund policy?"
+- "What do our Collections say about the refund policy?"
 - "What have I committed to this week?"
 
 Your assistant picks the right tools and arguments.
@@ -60,7 +60,7 @@ Installing the plugin in Claude Code adds five commands for the things people do
 
 | Command | What it does |
 |---|---|
-| `/ask <question>` | Searches your team's brain and your own memory, and answers with sources |
+| `/ask <question>` | Searches your Collections, Company Brain and own memory, and answers with sources |
 | `/person <name or email>` | Briefs you before a conversation: your history with them, open commitments both ways, and open tasks that involve them |
 | `/commitments` | What you've promised and what you're owed, overdue first |
 | `/task <what, by when>` | Turns a sentence into a DoBox task, after you confirm it |
@@ -142,7 +142,7 @@ The server exposes 62 tools. Your client lists each one with its full descriptio
 | Organizing | `list_task_groups`, `create_task_group`, `update_task_group`, `update_task_group_participants`, `list_task_subgroups`, `get_task_subgroup`, `create_task_subgroup`, `update_task_subgroup`, `list_task_labels`, `create_task_label`, `update_task_label` | Task groups, who's in them, subgroups and labels |
 | Automation | `list_dobox_rules`, `create_dobox_rule`, `update_dobox_rule`, `list_recurring_dobox`, `get_recurring_dobox_by_reference`, `create_recurring_dobox`, `update_recurring_dobox` | Rules that act on incoming tasks, and recurring tasks |
 | Teams | `list_user_teams`, `get_team`, `list_team_members` | Your teams and their members |
-| Brain | `knowledge_search`, `knowledge_get_page`, `knowledge_list_pages`, `knowledge_list_spaces`, `knowledge_create_page`, `knowledge_edit_page`, `knowledge_rename_page`, `knowledge_create_space`, `knowledge_rename_space` | Search, read and write your team's knowledge pages |
+| Collections and Company Brain | `knowledge_search`, `knowledge_get_page`, `knowledge_list_pages`, `knowledge_list_spaces`, `knowledge_create_page`, `knowledge_edit_page`, `knowledge_rename_page`, `knowledge_create_space`, `knowledge_rename_space` | Search and read Collections and Company Brain pages; write Collections pages |
 | Your memory | `user_brain_status`, `user_brain_profile`, `user_brain_list_memories`, `user_brain_search_memories`, `user_brain_top_contacts`, `user_brain_person_context`, `user_brain_hierarchy`, `user_brain_voice`, `user_brain_signals`, `user_brain_review_queue`, `user_brain_remember`, `user_brain_declare_fact`, `user_brain_confirm_memory`, `user_brain_retract_memory`, `user_brain_forget_person` | Read what your mail and chats established, add or confirm facts, and retract a memory or forget a person |
 
 Every tool is marked read-only or write in its MCP annotations, so clients that ask before a write will ask.
@@ -151,7 +151,7 @@ Every tool is marked read-only or write in its MCP annotations, so clients that 
 
 ## What data does it access?
 
-The connector acts as you, with your this+that permissions. It reads and changes your DoBox tasks and their comments, groups, rules and recurring tasks; reads and edits the brain pages your team shares with you; and reads and updates your own memory. It sees only what your account can already see in this+that. Two tools are marked destructive: `user_brain_retract_memory` drops a memory you say is wrong, and `user_brain_forget_person` erases what your memory holds about one person and stops tracking them, which can't be undone.
+The connector acts as you, with your this+that permissions. It reads and changes your DoBox tasks and their comments, groups, rules and recurring tasks; reads the Collections and Company Brain pages your team shares with you and edits the Collections ones; and reads and updates your own memory. It sees only what your account can already see in this+that. Two tools are marked destructive: `user_brain_retract_memory` drops a memory you say is wrong, and `user_brain_forget_person` erases what your memory holds about one person and stops tracking them, which can't be undone.
 
 Authentication uses standard OAuth 2.0. Tokens are stored by your AI client (e.g., in your OS keychain on macOS); we never see them.
 
