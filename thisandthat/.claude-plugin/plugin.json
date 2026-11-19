@@ -1,0 +1,27 @@
+{
+  "name": "thisandthat",
+  "version": "1.0.0",
+  "description": "Work with this+that from your AI assistant: manage DoBox tasks, rules and recurring tasks, search and edit your team's brain, and look up what your own mail and chats established about people, commitments and decisions",
+  "author": {
+    "name": "this+that",
+    "url": "https://www.thisandthat.chat"
+  },
+  "homepage": "https://www.thisandthat.chat/mcp",
+  "icon": "./assets/icon.png",
+  "privacyPolicyUrl": "https://www.thisandthat.chat/assistant-privacy-policy/",
+  "repository": "https://github.com/thisnthat-lab/mcp-server",
+  "license": "MIT",
+  "keywords": [
+    "dobox",
+    "tasks",
+    "brain",
+    "knowledge-base",
+    "memory",
+    "contacts",
+    "productivity",
+    "mcp",
+    "thisandthat",
+    "inbox",
+    "workflow"
+  ]
+}

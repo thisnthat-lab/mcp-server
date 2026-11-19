@@ -5,14 +5,14 @@
 		"url": "https://www.thisandthat.chat"
 	},
 	"metadata": {
-		"description": "MCP plugins for the this+that productivity platform",
+		"description": "MCP plugins for this+that: DoBox tasks, the team brain and your personal memory",
 		"version": "1.0.0"
 	},
 	"plugins": [
 		{
-			"name": "dobox-cowork",
-			"source": "./dobox-cowork",
-			"description": "View your DoBox tasks directly in Claude Cowork",
+			"name": "thisandthat",
+			"source": "./thisandthat",
+			"description": "Work with this+that from your AI assistant: manage DoBox tasks, rules and recurring tasks, search and edit your team's brain, and look up what your own mail and chats established about people, commitments and decisions",
 			"version": "1.0.0",
 			"author": {
 				"name": "this+that",
@@ -21,7 +21,19 @@
 			"homepage": "https://www.thisandthat.chat",
 			"repository": "https://github.com/thisnthat-lab/mcp-server",
 			"license": "MIT",
-			"keywords": ["dobox", "tasks", "productivity", "mcp", "thisandthat"]
+			"keywords": [
+				"dobox",
+				"tasks",
+				"brain",
+				"knowledge-base",
+				"memory",
+				"contacts",
+				"productivity",
+				"mcp",
+				"thisandthat",
+				"inbox",
+				"workflow"
+			]
 		}
 	]
 }
