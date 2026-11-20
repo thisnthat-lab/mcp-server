@@ -97,16 +97,17 @@ Add this to your Claude Desktop config (Settings → Developer → Edit Config):
 
 Restart Claude Desktop. On first use, it'll prompt you to sign in.
 
-### ChatGPT (custom MCP connector)
+### ChatGPT (custom MCP server)
 
-Requires **Developer Mode** enabled. On the web app: **Settings → Apps → Advanced settings → Developer mode** (Pro/Plus/Business/Enterprise/Education accounts; web only — not mobile).
+On chatgpt.com (web only):
 
-Then **Settings → Connectors → Create custom connector** with:
+1. Go to [chatgpt.com/plugins](https://chatgpt.com/plugins), select the plus button, then **Add custom MCP server**
+2. Name it, and enter `https://mcp.thisandthat.chat/mcp` as the **Server URL**
+3. Choose **OAuth**, leave every other field blank (the server handles client registration), confirm, and select **Create as a plugin**
+4. Install the plugin and sign in when prompted
+5. In a new chat, type `@` and pick the plugin
 
-- **Server URL**: `https://mcp.thisandthat.chat/mcp`
-- Leave all other fields (Client ID, Client Secret, advanced URLs) **blank** — the server handles dynamic client registration
-
-Save and click Connect. You'll be redirected to sign in. After authorizing, the connector activates and DoBox tools appear in your conversations.
+Your workspace's settings decide whether you can add custom MCP servers, so on a Business or Enterprise plan an admin may need to allow it. Writes ask for your confirmation first. Deep research and company knowledge use the `search` and `fetch` tools to find and cite your Collections and Company Brain pages.
 
 ### Other MCP clients
 
@@ -124,7 +125,7 @@ Most clients discover these automatically.
 | Claude Code (via this plugin) | Untested | Untested | Recommended path; pending end-to-end verification |
 | claude.ai web (custom connector) | Working | Working | Verified end-to-end |
 | Claude Desktop (custom connector) | Working | Working | Same broker as claude.ai web |
-| ChatGPT (custom connector) | Working | Working | Verified end-to-end. Requires Developer Mode. |
+| ChatGPT (custom MCP server) | Working | Working | Verified end-to-end |
 | MCP Inspector 0.21.2 | Working | Working | Verified end-to-end |
 | Gemini | Untested | Untested | Should support remote MCP via Vertex/Agentspace — reports welcome via [issues](https://github.com/thisnthat-lab/mcp-server/issues). |
 | Cursor, Cline, Continue, Zed, others | Unknown | Unknown | If you're using one of these, we'd love a report. |
@@ -133,7 +134,7 @@ Most clients discover these automatically.
 
 ## Tools available
 
-The server exposes 62 tools. Your client lists each one with its full description; these are the groups.
+The server exposes 64 tools. Your client lists each one with its full description; these are the groups.
 
 | Group | Tools | What they do |
 |---|---|---|
@@ -143,6 +144,7 @@ The server exposes 62 tools. Your client lists each one with its full descriptio
 | Automation | `list_dobox_rules`, `create_dobox_rule`, `update_dobox_rule`, `list_recurring_dobox`, `get_recurring_dobox_by_reference`, `create_recurring_dobox`, `update_recurring_dobox` | Rules that act on incoming tasks, and recurring tasks |
 | Teams | `list_user_teams`, `get_team`, `list_team_members` | Your teams and their members |
 | Collections and Company Brain | `knowledge_search`, `knowledge_get_page`, `knowledge_list_pages`, `knowledge_list_spaces`, `knowledge_create_page`, `knowledge_edit_page`, `knowledge_rename_page`, `knowledge_create_space`, `knowledge_rename_space` | Search and read Collections and Company Brain pages; write Collections pages |
+| ChatGPT search | `search`, `fetch` | Search your Collections and Company Brain pages and read one in full, in the shape ChatGPT deep research and company knowledge expect; results link back to the page in this+that |
 | Your memory | `user_brain_status`, `user_brain_profile`, `user_brain_list_memories`, `user_brain_search_memories`, `user_brain_top_contacts`, `user_brain_person_context`, `user_brain_hierarchy`, `user_brain_voice`, `user_brain_signals`, `user_brain_review_queue`, `user_brain_remember`, `user_brain_declare_fact`, `user_brain_confirm_memory`, `user_brain_retract_memory`, `user_brain_forget_person` | Read what your mail and chats established, add or confirm facts, and retract a memory or forget a person |
 
 Every tool is marked read-only or write in its MCP annotations, so clients that ask before a write will ask.
@@ -153,7 +155,7 @@ Every tool is marked read-only or write in its MCP annotations, so clients that 
 
 The connector acts as you, with your this+that permissions. It reads and changes your DoBox tasks and their comments, groups, rules and recurring tasks; reads the Collections and Company Brain pages your team shares with you and edits the Collections ones; and reads and updates your own memory. It sees only what your account can already see in this+that. Two tools are marked destructive: `user_brain_retract_memory` drops a memory you say is wrong, and `user_brain_forget_person` erases what your memory holds about one person and stops tracking them, which can't be undone.
 
-Authentication uses standard OAuth 2.0. Tokens are stored by your AI client (e.g., in your OS keychain on macOS); we never see them.
+Authentication uses standard OAuth 2.0. Our server issues the tokens and your AI client stores them (on macOS, usually in your keychain).
 
 For full details on how this+that handles your data, see the [privacy policy](https://www.thisandthat.chat/assistant-privacy-policy).
 
