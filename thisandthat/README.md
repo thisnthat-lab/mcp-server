@@ -111,10 +111,10 @@ Your workspace's settings decide whether you can add custom MCP servers, so on a
 
 ### Other MCP clients
 
-Point your client at `https://mcp.thisandthat.chat/mcp` as an HTTP MCP server. The OAuth metadata endpoints are:
+Point your client at `https://mcp.thisandthat.chat/mcp` as an HTTP MCP server. Sign-in uses OAuth with Clerk as the authorization server:
 
-- `https://mcp.thisandthat.chat/.well-known/oauth-protected-resource`
-- `https://mcp.thisandthat.chat/.well-known/oauth-authorization-server`
+- Protected resource metadata: `https://mcp.thisandthat.chat/.well-known/oauth-protected-resource`
+- Authorization server metadata: `https://clerk.thisandthat.chat/.well-known/oauth-authorization-server`
 
 Most clients discover these automatically.
 
@@ -134,7 +134,7 @@ Most clients discover these automatically.
 
 ## Tools available
 
-The server exposes 64 tools. Your client lists each one with its full description; these are the groups.
+The server exposes 77 tools. Your client lists each one with its full description; these are the groups.
 
 | Group | Tools | What they do |
 |---|---|---|
@@ -145,7 +145,10 @@ The server exposes 64 tools. Your client lists each one with its full descriptio
 | Teams | `list_user_teams`, `get_team`, `list_team_members` | Your teams and their members |
 | Collections and Company Brain | `knowledge_search`, `knowledge_get_page`, `knowledge_list_pages`, `knowledge_list_spaces`, `knowledge_create_page`, `knowledge_edit_page`, `knowledge_rename_page`, `knowledge_create_space`, `knowledge_rename_space` | Search and read Collections and Company Brain pages; write Collections pages |
 | ChatGPT search | `search`, `fetch` | Search your Collections and Company Brain pages and read one in full, in the shape ChatGPT deep research and company knowledge expect; results link back to the page in this+that |
-| Your memory | `user_brain_status`, `user_brain_profile`, `user_brain_list_memories`, `user_brain_search_memories`, `user_brain_top_contacts`, `user_brain_person_context`, `user_brain_hierarchy`, `user_brain_voice`, `user_brain_signals`, `user_brain_review_queue`, `user_brain_remember`, `user_brain_declare_fact`, `user_brain_confirm_memory`, `user_brain_retract_memory`, `user_brain_forget_person` | Read what your mail and chats established, add or confirm facts, and retract a memory or forget a person |
+| Your memory | `user_brain_status`, `user_brain_profile`, `user_brain_list_memories`, `user_brain_search_memories`, `user_brain_review_queue`, `user_brain_signals`, `user_brain_hierarchy`, `user_brain_voice`, `user_brain_remember`, `user_brain_declare_fact`, `user_brain_update_memory`, `user_brain_confirm_memory`, `user_brain_retract_memory` | Read what your mail and chats established, and add, correct, confirm or retract it |
+| People | `user_brain_top_contacts`, `user_brain_find_person`, `user_brain_person_dossier`, `user_brain_person_context`, `user_brain_person_timeline`, `user_brain_person_mentions`, `user_brain_people_in_period`, `user_brain_people_gone_quiet`, `user_brain_confirm_person`, `user_brain_forget_person` | Who someone is, your conversations with them, who mentioned them, who you talked to in a period and who went quiet; confirm what your memory holds about a person or forget them |
+| Spending | `user_brain_spending`, `user_brain_subscriptions` | Spending, subscriptions and money owed, from your mail |
+| Ignoring | `user_brain_ignore`, `user_brain_unignore`, `user_brain_list_ignored` | Stop or resume reading a channel or a person |
 
 Every tool is marked read-only or write in its MCP annotations, so clients that ask before a write will ask.
 
@@ -167,7 +170,7 @@ For full details on how this+that handles your data, see the [privacy policy](ht
 The plugin's MCP server hasn't completed OAuth yet. In Claude Code, run `/plugin` and confirm `thisandthat` is enabled. Then run `/dobox` again — your browser should open for sign-in.
 
 **Browser opens but sign-in fails.**
-Make sure you're signed in to your this+that account at [thisandthat.chat](https://thisandthat.chat) in the same browser. If you have multiple this+that accounts, sign out and back in with the right one before retrying.
+If you have multiple this+that accounts, check you signed in with the right one, then retry.
 
 **The plugin says "no entries" but you definitely have some.**
 Check the `filter` — by default the tool returns unresolved entries only. If everything's resolved, that explains an empty list. You can ask Claude to fetch resolved entries explicitly.
